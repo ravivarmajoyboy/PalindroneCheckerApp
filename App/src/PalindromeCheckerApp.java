@@ -1,38 +1,32 @@
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
+    public class PalindromeCheckerApp {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter a string: ");
-        String str = sc.nextLine();   // Taking full string input
+            // Taking input from user
+            System.out.print("Enter a string: ");
+            String original = sc.nextLine();
 
-        // Convert string to char array
-        char[] arr = str.toCharArray();
+            String reversed = "";
 
-        int left = 0;
-        int right = arr.length - 1;
-
-        boolean isPalindrome = true;
-
-        // Two-pointer comparison
-        while (left < right) {
-            if (arr[left] != arr[right]) {
-                isPalindrome = false;
-                break;
+            // Reverse string using for loop
+            for (int i = original.length() - 1; i >= 0; i--) {
+                reversed = reversed + original.charAt(i);   // String concatenation
             }
-            left++;
-            right--;
-        }
 
-        if (isPalindrome) {
-            System.out.println("String is a palindrome");
-        } else {
-            System.out.println("String is not a palindrome");
-        }
+            // Display reversed string
+            System.out.println("Reversed string: " + reversed);
 
-        sc.close();
+            // Compare original and reversed
+            if (original.equals(reversed)) {
+                System.out.println("Result: String is a palindrome");
+            } else {
+                System.out.println("Result: String is not a palindrome");
+            }
+
+            sc.close();
+        }
     }
-}
