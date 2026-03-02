@@ -1,38 +1,38 @@
-//version 1.0
- //author Ravi varma
- //UseCase 2: Hardcoded Palindrome Result
 import java.util.Scanner;
+
 public class PalindromeCheckerApp {
 
-    public static boolean isPalindrome(String str) {
-        // Remove spaces and convert to lowercase
-        str = str.replaceAll("\\s+", "").toLowerCase();
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();   // Taking full string input
+
+        // Convert string to char array
+        char[] arr = str.toCharArray();
 
         int left = 0;
-        int right = str.length() - 1;
+        int right = arr.length - 1;
 
+        boolean isPalindrome = true;
+
+        // Two-pointer comparison
         while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                return false;
+            if (arr[left] != arr[right]) {
+                isPalindrome = false;
+                break;
             }
             left++;
             right--;
         }
-        return true;
-    }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
-
-        if (isPalindrome(input)) {
-            System.out.println("It is a palindrome.");
+        if (isPalindrome) {
+            System.out.println("String is a palindrome");
         } else {
-            System.out.println("It is not a palindrome.");
+            System.out.println("String is not a palindrome");
         }
 
-        scanner.close();
+        sc.close();
     }
 }
